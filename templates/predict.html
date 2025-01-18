@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en" >
+  <!-- <link rel="icon" type="image/png" href="{% static 'tab.png' %}"> -->
+<head>
+  <script>
+    let x = Math.random() * 10;
+    document.getElementById("piechart").innerHTML = x;
+  </script>
+
+<meta charset="UTF-8">
+<title>Result</title>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+<style>
+  /* Navigation Bar */
+.navbar{
+padding: 20px 10px 20px 0px;
+/* background-image: linear-gradient(to right, #444444 , #000000); */
+background-image: linear-gradient(to right, #000000, #444444);
+transition: all ease 0.4s;
+}
+.navbar-brand{
+font-size: 22px;
+padding-left: 50px;
+color: white !important;
+}
+.navbar .navbar-nav li a{
+font-size: 16px;
+padding-right: 50px;
+color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#resNav">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="#" class="navbar-brand">Stress Detection</a>
+  </div>
+  <div class="collapse navbar-collapse" id="resNav">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/home">Home</a></li>
+    </ul>
+  </div>
+</nav>  <!-- End of Navigation Bar -->
+
+<style>
+body {
+ 
+  background-image: url("{% static 'images/image69.jpg' %}");
+  color: rgb(255, 255, 255);
+  max-width: 100%;
+  height: auto;
+  width: auto; /* ie8 */
+
+}
+
+</style>  
+<!-- <script>
+  alert('{{ messages }}');
+</script> -->
+  <body >
+    {% if messages %}
+    {% for message in messages %}
+     {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+    {% endfor %}
+
+{% endif %}
+    {% csrf_token %}
+  <br><br><br><br><br>
+  <center>
+    <h1 style="color:#ffff ;text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"><b><center>RESULT </center></b></h1>
+    <div id="piechart"></div>
+    
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+    <script type="text/javascript">
+      // Load google charts
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+    
+      // Draw the chart and set the chart values
+      var a = {{level2}};
+      var b = {{level1}};
+      function drawChart() {
+    
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Positive', a],
+          ['Negative', b],
+        ]);
+    
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'Tweets analysis ', 'width':550, 'height':400};
+    
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    
+        chart.draw(data, options);
+      }
+    </script>
+    
+
+    <form action="" method="POST">
+        {% csrf_token %}
+   <center>
+    <table border="1">
+        
+ <tr><td><b>TEXT :</b></td><td>{{entered_text}}, Introversion (I), Extroversion (E), Intuition (N), Sensing (S), Thinking (T), Feeling (F), Judging (J), Perceiving (P)</td></tr><br>
+
+
+
+ <tr><td><b>TWITTER PROFILE ID :</b></td><td>{{id}}</td></tr><br>
+
+
+
+ 
+ <tr><td><b>TWITTER PROFILE DESCRIPTION :</b></td><td>{{description}}</td></tr><br>
+
+ <tr><td><b>TWITTER FOLLOWERS :</b></td><td>{{followers}}</td></tr><br>
+
+
+ 
+ <tr><td><b>TWITTER PROFILE PIC :</b></td><td><img src="{{profilepic}}" height="100" width="100"><a href="{{profilepic}}">View</a></td></tr><br>
+
+
+ 
+ <tr><td><b>STRESS LEVEL :</b></td><td>{{stress}}</td></tr><br>
+
+
+    </table>
+   
+
+   
+ <br>
+  <table>
+    <center>
+   <h3><b>TWEETS FROM TWITTER</b></h3></center><br>
+    
+    <p>{{text1|linebreaks}}<p>
+
+  </table>
+  
+                 
+
+    </center>
+      </div>
+</form>
+ 
+  </center>
+  <script src="//code.tidio.co/r3eeeelszmeckfwkdon8ninqi0belms1.js" async></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css);
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js);
+
+
+
+
+
+
+body {
+    background: rgb(39, 111, 120)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #240a81
+}
+
+.profile-button {
+    background: rgb(3, 197, 35);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #1a8b40
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #27732b;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 15px
+}
+
+.add-experience:hover {
+    background: rgb(219, 198, 198);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: solid 1px #68c8c8
+}

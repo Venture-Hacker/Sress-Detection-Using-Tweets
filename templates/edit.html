@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+    {% load widget_tweaks %}
+    <link rel="stylesheet" href="{% static 'css/style3.css' %}" media="screen" type="text/css" />
+<body background="{% static 'images/image69.jpg' %}" >   
+<form action="" method="POST">
+
+    {% csrf_token %}
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{username}}</span><span class="text-black-50">{{username}}</span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+   
+    <div class="row mt-3">
+        <div class="col-md-6"><label class="labels">Username</label>{% render_field form.username class='form-control'  placeholder="Username" %}</div>
+        <div class="col-md-12"><label class="labels">Phonenumber</label>{% render_field form1.phonenumber class='form-control'  placeholder="Contact" %}</div>
+        <div class="col-md-12"><label class="labels">Email</label>{% render_field form.email class='form-control'  placeholder="Email" %}</div>
+        <div class="col-md-12"><label class="labels">Password</label>{% render_field form.password class='form-control'  placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" %}</div>
+        <div class="col-md-12"><label class="labels">Confirm Password</label>{% render_field form1.rpassword class='form-control'  placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" %}</div>
+        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" value="update">Save Changes</button></div>
+    </div>
+    
+</div>
+</div>
+<div class="col-md-4">
+<div class="p-3 py-5">
+    <div class="d-flex justify-content-between align-items-center experience"><span></span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i><a href="{% url 'profile' %}"style="text-decoration:none ; color:green;"><b>&nbsp;Home</b></a></span></div><br>
+    
+</div>
+</div>
+</div>
+<green
+</div>
+
+</form>          

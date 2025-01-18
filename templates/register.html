@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	{% load widget_tweaks %}
+	<head>
+		<meta charset="utf-8">
+		<title>Registration</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- LINEARICONS -->
+	<link rel="stylesheet" href="{% static 'assets6/fonts/linearicons/style.css' %}">
+	
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="{% static 'assets6/css/style.css' %}">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div class="inner">
+			<img src="{% static 'assets6/images/image-1.png' %}" alt="" class="image-1">
+			<form action="" method="POST">
+				{% csrf_token %}
+				<h3>New Account?</h3>
+				{% if messages %}
+					{% for message in messages %}
+						<div class="alert alert-danger" role="alert">
+							{{ message }}
+						</div>
+					{% endfor %}
+				{% endif %}
+				<div class="form-holder">
+					<span class="lnr lnr-user"></span>
+					{% render_field form.username class='form-control'  placeholder="Username" %}
+					
+				</div>
+				{% if form.username.errors %}
+						<div class="text-danger">
+							{% for error in form.username.errors %}
+								{{ error }}
+							{% endfor %}
+						</div>
+				{% endif %}
+				<div class="form-holder">
+					<span class="lnr lnr-phone-handset"></span>
+					{% render_field form1.phonenumber class='form-control'  placeholder="Contact" pattern="[7-9]{1}[0-9]{9}" %}
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-envelope"></span>
+					{% render_field form.email class='form-control'  placeholder="Email" %}
+				</div>
+				{% if form.email.errors %}
+						<div class="text-danger">
+							{% for error in form.email.errors %}
+								{{ error }}
+							{% endfor %}
+						</div>
+				{% endif %}
+				<div class="form-holder">
+					<span class="lnr lnr-lock"></span>
+					{% render_field form.password class='form-control'  placeholder="Password" title="Password must contain an Uppercase,Lowercase letter, Special Character and Number"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" %}
+				</div>
+				<div class="form-holder">
+					<span class="lnr lnr-lock"></span>
+					{% render_field form1.rpassword class='form-control'  placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" %}
+				</div>
+				<button>
+					<span>Register</span>
+				</button>
+			</form>
+			<img src="{% static 'assets6/images/image-2.png' %}" alt="" class="image-2">
+		</div>
+		
+	</div>
+
+	<script src="{% static 'assets6/js/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static 'assets6/js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>

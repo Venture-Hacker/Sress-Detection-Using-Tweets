@@ -1,0 +1,344 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+  <!-- <link rel="stylesheet" href="{% static 'css/style4.css' %}" media="screen" type="text/css" /> -->
+  <link rel="icon" type="image/png" href="{% static 'tab.png' %}">
+<head>
+  <style>
+ body {
+  background-image: url("{% static 'images/image69.jpg' %}");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-color: #cccccc;
+  overflow: hidden;
+  margin: 0px;
+  font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: rgb(254, 252, 252);
+  padding-left: 50px; 
+  padding-right: 35%;
+}
+main {
+  position: relative;
+  height: 100vh;
+}
+main .helper {
+  
+  background: rgba(0, 0, 0, 0.2);
+  color: #ffea92;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  padding: 1.2em 2em;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 2em;
+  font-weight: bold;
+}
+main .helper span {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 0.4em;
+  display: block;
+}
+.menu {
+  /* background-image: url("{% static 'images/menubg6.jpg' %}"); */
+  height: 100vh;
+  width: 240px;
+  position: fixed;
+  color: rgb(238, 238, 238);
+  top: 0;
+  left: 0;
+  z-index: 5;
+  outline: none;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0.5em 0;
+  margin: 0;
+}
+.menu ul li {
+  padding: 0.5em 1em 0.5em 3em;
+  font-size: 1.2em;
+  font-weight: regular;
+  background-repeat: no-repeat;
+  background-position: left 15px center;
+  background-size: auto 20px;
+  transition: all 0.15s linear;
+  cursor: pointer;
+}
+.menu ul li.icon-dashboard {
+  background-image: url("{% static 'images/homeicon.gif' %}");
+}
+
+.menu ul li.icon-profile{
+  background-image: url("{% static 'images/profileicon.gif' %}");
+}
+.menu ul li.icon-logout {
+
+  background-image: url("{% static 'images/logouticon.gif' %}");
+  
+}
+.menu ul li:hover {
+  background-color:rgba(255, 0, 0, 0);
+}
+.menu ul li:focus {
+  outline: none;
+}
+@media screen and (max-width: 900px) and (min-width: 400px) {
+  body {
+    padding-left: 90px;
+  }
+  .menu {
+    width: 90px;
+  }
+
+  .menu ul li {
+    height: 60px;
+    background-position: center;
+    background-size: 30px auto;
+    position: relative;
+  }
+  .menu ul li span {
+    opacity: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    top: 50%;
+    left: 80px;
+    transform: translate3d(-15px, -50%, 0);
+    transition: all 0.15s ease-in-out;
+  }
+  .menu ul li span:before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid rgba(0, 0, 0, 0.5);
+    transform: translateY(-50%);
+  }
+  .menu ul li:hover span {
+    opacity: 1;
+    transform: translate3d(0px, -50%, 0);
+  }
+}
+@media screen and (max-width: 400px) {
+  body {
+    padding-left: 0;
+  }
+  .menu {
+    width: 230px;
+    box-shadow: 0 0 0 100em rgba(0, 0, 0, 0);
+    transform: translate3d(-230px, 0, 0);
+    transition: all 0.3s ease-in-out;
+  }
+  .menu .smartphone-menu-trigger {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 100%;
+    background: #5bc995;
+  }
+  .menu .smartphone-menu-trigger:before,
+  .menu .smartphone-menu-trigger:after {
+    content: '';
+    width: 50%;
+    height: 2px;
+    background: #fff;
+    border-radius: 10px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .menu .smartphone-menu-trigger:after {
+    top: 55%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .menu ul li {
+    padding: 1em 1em 1em 3em;
+    font-size: 1.2em;
+  }
+  .menu:focus {
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0 0 0 100em rgba(0, 0, 0, 0.6);
+  }
+  .menu:focus .smartphone-menu-trigger {
+    pointer-events: none;
+  }
+}
+
+
+
+</style>
+</head>
+
+<body>
+  <style>
+
+
+
+
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css);
+@import url(https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(230, 227, 227);
+    padding-right : 10px;
+    padding-top: 90px ;
+}
+
+
+.card {
+    width: 350px;
+    background-color: #eeeeee;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.4)
+}
+
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 0%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.idd {
+    font-size: 16px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 12px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    padding-left: 2px;
+    padding-top:8px ;
+    border: none;
+    background-color: rgb(49, 177, 23);
+    color: #eb1212;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 13px;
+    color: #d11b1b;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
+
+hr .new1 {
+    border: 1px solid
+}
+
+.join {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: bold
+}
+
+.date {
+    background-color: #ccc
+}
+    </style>
+  <nav class="menu" tabindex="0">
+  
+      
+    </header>
+    <ul>
+      <li tabindex="5" class="icon-dashboard"><span> <a href="/home" style="text-decoration:none ; color: white;">Home</a></span></li>
+      <!-- <li tabindex="0" class="icon-logout"><span>Clients</span></li> -->
+      <li tabindex="0" class="icon-logout"><span> <a href="/logout" style="text-decoration:none ; color: white;">Logout</a></span></li>
+      
+  
+      
+  
+  
+    </ul>
+    
+  </nav>
+  <center>
+  <form action=""method="POST">
+    {% csrf_token %}
+    {% for i in cr %}
+    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> <div class="card p-4"> 
+      <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> 
+        <img src="{% static 'images/imgavatar.png' %}" height="100" width="100" /></button> <span class="name mt-3">{{i.user}}</span> <span class="idd">{{i.phonenumber}}</span> 
+        <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">{{i.user.email}}</span> <span></i></span> </div> 
+        <div class="d-flex flex-row justify-content-center align-items-center mt-3"> <span class="number"><span class="follow"></span></span> </div> 
+        <div class=" d-flex mt-2"><a href="{% url 'edit' i.id %}" button  class="btn1 btn-dark"  class="btn btn-primary" style="text-decoration: none; color: rgb(201, 199, 199);" a href="{% url 'edit' i.id %}" > Edit Profile</a></button> </div> 
+       
+        {% endfor %}
+  </div>
+        <!-- <table border="1" align="center">
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>Password</th>
+        </tr>
+       {% for i in cr %}
+       <tr>
+           
+           <td>{{i.username}}</td>
+           <td>{{i.email}}</td>
+           <td>{{i.phonenumber}}</td>
+           <td>{{i.password}}</td>
+           <td><a href="{% url 'edit' i.id %}" class="btn btn-primary" style="text-decoration: none; color: #000;" >EDIT</a></td>
+       </tr>
+       {% endfor %}
+    </table> -->
+
+</form>    
+  </center>
+</body>
+</html>

@@ -1,0 +1,471 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+  <link rel="icon" type="image/png" href="{% static 'tab.png' %}">
+<head>
+  <style>
+
+
+::placeholder {
+  color: rgb(0, 0, 0);
+  opacity: 1; /* Firefox */
+}
+
+
+ body {
+  background-image: url("{% static 'images/image69.jpg' %}");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-color: #cccccc;
+  overflow: hidden;
+  margin: 0px;
+  font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: rgba(175, 45, 45, 0);
+  padding-left: 50px; 
+  padding-right: 35%;
+}
+main {
+  position: relative;
+  height: 100vh;
+}
+main .helper {
+  
+  background: rgba(0, 0, 0, 0.2);
+  color: #ffea92;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  padding: 1.2em 2em;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 2em;
+  font-weight: bold;
+}
+main .helper span {
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 0.4em;
+  display: block;
+}
+.menu {
+  /* background-image: url("{% static 'images/menubg6.jpg' %}"); */
+  height: 100vh;
+  width: 240px;
+  position: fixed;
+  color: rgb(238, 238, 238);
+  top: 0;
+  left: 0;
+  z-index: 5;
+  outline: none;
+}
+.menu .avatar {
+  /* background-image: url("{% static 'images/profilebg3.jpg' %}"); */
+  background-color: rgba(104, 205, 218, 0);
+  padding: 2em 0.5em;
+  text-align: center;
+}
+.menu .avatar img {
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+}
+.menu .avatar h2 {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+.menu ul {
+  list-style: none;
+  padding: 0.5em 0;
+  margin: 0;
+}
+.menu ul li {
+  padding: 0.5em 1em 0.5em 3em;
+  font-size: 0.95em;
+  font-weight: regular;
+  background-repeat: no-repeat;
+  background-position: left 15px center;
+  background-size: auto 20px;
+  transition: all 0.15s linear;
+  cursor: pointer;
+}
+.menu ul li.icon-dashboard {
+  background-image: url("{% static 'images/homeicon.gif' %}");
+}
+/* .menu ul li.icon-customers {
+  background-image: url("http://www.entypo.com/images//briefcase.svg");
+} */
+.menu ul li.icon-profile{
+  background-image: url("{% static 'images/profileicon.gif' %}");
+}
+.menu ul li.icon-logout {
+
+  background-image: url("{% static 'images/logouticon.gif' %}");
+  
+}
+
+.menu ul li.icon-chat {
+
+background-image: url("{% static 'images/chat.gif' %}");
+
+}
+.menu ul li.icon-consult {
+
+background-image: url("{% static 'images/consulticon.gif' %}");
+
+}
+
+
+.menu ul li:hover {
+  background-color:rgba(255, 0, 0, 0);
+}
+.menu ul li:focus {
+  outline: none;
+}
+@media screen and (max-width: 900px) and (min-width: 400px) {
+  body {
+    padding-left: 90px;
+  }
+  .menu {
+    width: 90px;
+  }
+  .menu .avatar {
+    padding: 0.5em;
+    position: relative;
+  }
+  .menu .avatar img {
+    width: 60px;
+  }
+  .menu .avatar h2 {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    margin: 0;
+    min-width: 200px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.4);
+    transform: translate3d(-20px, -50%, 0);
+    transition: all 0.15s ease-in-out;
+  }
+  .menu .avatar:hover h2 {
+    opacity: 1;
+    transform: translate3d(0px, -50%, 0);
+  }
+  .menu ul li {
+    height: 60px;
+    background-position: center;
+    background-size: 30px auto;
+    position: relative;
+  }
+  .menu ul li span {
+    opacity: 0;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    top: 50%;
+    left: 80px;
+    transform: translate3d(-15px, -50%, 0);
+    transition: all 0.15s ease-in-out;
+  }
+  .menu ul li span:before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid rgba(0, 0, 0, 0.5);
+    transform: translateY(-50%);
+  }
+  .menu ul li:hover span {
+    opacity: 1;
+    transform: translate3d(0px, -50%, 0);
+  }
+}
+@media screen and (max-width: 400px) {
+  body {
+    padding-left: 0;
+  }
+  .menu {
+    width: 230px;
+    box-shadow: 0 0 0 100em rgba(0, 0, 0, 0);
+    transform: translate3d(-230px, 0, 0);
+    transition: all 0.3s ease-in-out;
+  }
+  .menu .smartphone-menu-trigger {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 100%;
+    background: #5bc995;
+  }
+  .menu .smartphone-menu-trigger:before,
+  .menu .smartphone-menu-trigger:after {
+    content: '';
+    width: 50%;
+    height: 2px;
+    background: #fff;
+    border-radius: 10px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .menu .smartphone-menu-trigger:after {
+    top: 55%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .menu ul li {
+    padding: 1em 1em 1em 3em;
+    font-size: 1.2em;
+  }
+  .menu:focus {
+    transform: translate3d(0, 0, 0);
+    box-shadow: 0 0 0 100em rgba(0, 0, 0, 0.6);
+  }
+  .menu:focus .smartphone-menu-trigger {
+    pointer-events: none;
+  }
+}
+.parent {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.image1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  
+}
+.image2 {
+  
+  position: fixed;
+  top: 80px;
+  left: 270px;
+  
+}
+</style>
+<style>         
+  textarea {
+    position: fixed;
+    background-image: url("{% static 'textarea.jpg' %}");
+    background: transparent;
+    text-align: center;
+    width: 500px;
+    height: 150px;
+    box-shadow: 0px 0px 20px #716c6c;
+    padding: 62px 20px;
+    color:#f4f4f4;
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    background-color: #f8f8f800;
+    font-size: 16px;
+    resize: none;
+    top: 40%;
+    left: 37.2%;
+  }
+ /* CSS */
+.button{
+  position: fixed;
+  align-items: center;
+  background-image: linear-gradient(135deg, #525454 40%, #242529);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "Codec cold",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 54px;
+  justify-content: space-around;
+  letter-spacing: .4px;
+  line-height: 1;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  top: 65%;
+  left: 50%;
+}
+
+.button:active {
+  outline: 0;
+}
+
+.button:hover {
+  outline: 0;
+}
+
+.buttonspan {
+  transition: all 200ms;
+}
+
+.button:hover span {
+  transform: scale(.9);
+  opacity: .75;
+}
+
+@media screen and (max-width: 991px) {
+  .button {
+    font-size: 15px;
+    height: 50px;
+  }
+  button {
+    font-size: 1.1em;
+    background-color: #EBF5FF;
+    color: #4312AE;
+    border: 2px solid black;
+    box-shadow: 4px 4px 4px #999999;
+  }
+  button:hover, button:focus, button:active {
+    /* swap colors */
+    color: #EBF5FF;
+    background-color: #4312AE;
+    cursor: pointer; /* displays a hand */
+  }
+
+  .button span {
+    line-height: 50px;
+  }
+}
+.button2{
+  position: fixed;
+  align-items: center;
+  /* background-image: linear-gradient(135deg, #240d77 40%, #3913e2); */
+  background-image: linear-gradient(135deg, #edf1f2 40%, #1824c7);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "Codec cold",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 54px;
+  justify-content: space-around;
+  letter-spacing: .4px;
+  line-height: 1;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  top: 87%;
+  right: 3%;
+}
+
+h2 { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  opacity: 1; /* Firefox */
+  text-align: center;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(255, 255, 255);
+  opacity: 1; /* Firefox */
+  text-align: center;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: red;
+}
+</style>
+
+
+
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  
+
+</head>
+<body background="{% static 'images/image69.jpg' %}"> 
+  <style>
+    body {
+    max-width: 100%;
+    height: auto;
+    width: auto; /* ie8 */
+}
+div.a{
+  text-transform: capitalize;
+  text-transform: uppercase;
+}
+  </style>
+     <!-- <div class="parent">
+      <img class="image1" src="{% static 'images/image7.jpg' %}"/>
+      <img class="image2" src="{% static 'images/welcoe.png' %}"/>
+  
+    </div>   -->
+<nav class="menu" tabindex="0">
+	<div class="smartphone-menu-trigger"></div>
+  <header class="avatar">
+		<img src="{% static 'images/imgavatar.png' %}" />
+    <div class="a">
+    <h2 style="color:white"></h2>{{user}}</h2>
+    </div>
+
+  </header> 
+  <body>
+	<ul>
+    <li tabindex="5" class="icon-dashboard"><span>Home</span></li>
+    <!-- <li tabindex="0" class="icon-logout"><span>Clients</span></li> -->
+    <li tabindex="0" class="icon-profile"><span> <a href="{% url 'profile' %}"style="text-decoration:none ; color: white;">Profile</a></span></li>
+    <li tabindex="0" class="icon-consult"><span> <a href="{% url 'consult1' %}" style="text-decoration:none ; color: white;">Consult</a></span></li>
+   
+    <li tabindex="0" class="
+    
+    icon-logout"><span> <a href="/logout" style="text-decoration:none ; color: white;">Logout</a></span></li>
+    
+
+
+    
+
+
+  </ul>
+</nav>
+<br>
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+<form method="post">
+  {% csrf_token %}
+
+  <textarea name="name" id="name"  placeholder="Enter your text"></textarea>
+
+  <button class="button" role="button" ><span class="text">Detect</span></button>
+
+</form>
+
+</br>
+</br>
+</body>
+ 
+<script src="//code.tidio.co/r3eeeelszmeckfwkdon8ninqi0belms1.js" async></script>
+
+</body>
+</html>
