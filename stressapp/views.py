@@ -124,10 +124,10 @@ def home(request):
 
 
     #filtr=""
-        apikey= "svNoF8VJfiOeYQ1CSNXe5Oacj"
-        apisecretkey = '8oUX39izHzNEBN58FGW3h8CAh8tmcbJ60FofbBWapyOjQwQMuj'
-        acctoken = '1559583431885225984-UxCRL9jQMBkkNOEmuvUj5Yzi1gpd0C'
-        acctokensecret ='nIlVPCfGQbsStfHBGrlEQEOPt0pYVOnrDPrmkFPXWZFfY'
+        apikey= "your key"
+        apisecretkey = 'your key'
+        acctoken = 'your key'
+        acctokensecret ='your key'
 
         auth =tweepy.OAuthHandler(apikey,apisecretkey)
         auth.set_access_token(acctoken,acctokensecret)
